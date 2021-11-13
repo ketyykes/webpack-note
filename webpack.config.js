@@ -14,11 +14,16 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                type: 'asset',
                 generator: {
-                    filename: 'images/[hash][name][ext]'
+                    filename: 'images/[hash:8][name][ext]'
                   },
-                },  
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 8 * 1024 //在多少位元組以下就變成base64
+                    }
+                }
+            },  
           ],
     },
     entry: './src/js/index.js',
