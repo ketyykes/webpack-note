@@ -1,6 +1,21 @@
 $h1color:#FF0000;
+:root{
+    --testColor:lch(53 105 40);
+}
 body{
     div {
         color: $h1color;
+    }
+    
+    .demo{
+        color: var(--testColor);
+    }
+    .haha{
+        transform: scale(1, 2);
+    }
+    .title{
+        background-image: url(../images/bear.jpg);
+        height: 100px;
+        width: 100px;
     }
 }

@@ -12,8 +12,15 @@ module.exports = {
               // 把 sass-loader 放在首要處理 (第一步)
               use: [MiniCssExtractPlugin.loader, 'css-loader','postcss-loader', 'sass-loader'],
             },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[hash][name][ext]'
+                  },
+                },  
           ],
-      },
+    },
     entry: './src/js/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -31,7 +38,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Custom template',
             filename: 'html/index.html',
-            template:'src/html/index.html'
+            template:'src/html/template.html'
         }),
        new MiniCssExtractPlugin({
         filename: "./css/[contenthash].bundle.css"

@@ -7,7 +7,8 @@
     "watch": "cross-env NODE_ENV=development webpack --watch",
     "start": "cross-env NODE_ENV=development webpack",
     "server": "cross-env NODE_ENV=development webpack server",
-    "deploy": "cross-env NODE_ENV=production webpack"
+    "deploy": "cross-env NODE_ENV=production webpack",
+    "deploy-server": "cross-env NODE_ENV=production webpack server"
   },
   "keywords": [],
   "author": "",
