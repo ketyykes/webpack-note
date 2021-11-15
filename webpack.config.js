@@ -23,7 +23,14 @@ module.exports = {
                         maxSize: 8 * 1024 //在多少位元組以下就變成base64
                     }
                 }
-            },  
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/, //node module底下的東西就不用做了
+                use: {
+                  loader: "babel-loader",
+                }
+              }
           ],
     },
     entry: './src/js/index.js',
@@ -39,6 +46,7 @@ module.exports = {
         port: 8080,
         hot:true,
     },
+    devtool:'source-map',
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Custom template',
@@ -46,7 +54,7 @@ module.exports = {
             template:'src/html/template.html'
         }),
        new MiniCssExtractPlugin({
-        filename: "./css/[contenthash].bundle.css"
+        filename: "./css/[contenthash:8].bundle.css"
        }),
     ],
 }
