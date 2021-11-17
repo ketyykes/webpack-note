@@ -30,13 +30,15 @@ module.exports = {
                 use: {
                   loader: "babel-loader",
                 }
-              }
+              },
+              
           ],
     },
     entry: './src/js/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        clean: true
       },
     devServer: {
         static: {
